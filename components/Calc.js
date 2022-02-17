@@ -1,6 +1,7 @@
 import React from "react";
-const Calc =()=>{
-    return<><h1>계산기</h1>
+import Layout from "../containers/Layout";
+export default function Calc(){
+    return(<Layout><h1>계산기</h1>
     <form>
         <div>
             <img src="" alt="" />
@@ -17,19 +18,7 @@ const Calc =()=>{
             <button>입력</button><br/><br/>
             <label htmlFor=""><b>결과</b></label>
             <input type="text" />
-
-
         </div>
-
-
-
-    </form>
-    
-    
-    </>
-
-
-
-
+    </form>    
+    </Layout>)
 }
-export default Calc
