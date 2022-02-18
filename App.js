@@ -5,6 +5,7 @@ import Grade from "./components/Grade";
 import Home from "./pages/Home";
 import Login from "./components/Login";
 import { useRoutes } from "react-router-dom";
+import Counter from "./components/Counter";
 export default function App(){
 return useRoutes([
     {path: "/", element: <Home />},
@@ -12,6 +13,7 @@ return useRoutes([
     {path: "calc", element: <Calc />},
     {path: "grade", element: <Grade />},
     {path: "login", element: <Login />},
+    {path: "counter", element: <Counter />}
 ]);
 
 }
