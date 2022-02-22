@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Layout from "../containers/Layout";
 export default function Grade (){
-    const [username, setUsername]= useState(0)
+    const [name, setname]= useState(0)
     const [eng, setEng] = useState()
     const [kor, setKor] = useState()
     const [math, setMath] = useState()
-    const [react, setResult] = useState()
+    const [result, setResult] = useState()
     const sum =()=>{
         let username = document.getElementById('username').value
         console.log("이름 : " + username)
@@ -15,7 +15,7 @@ export default function Grade (){
         console.log("수학 :"+ math)
         let kor = document.getElementById('kor').value
         console.log("국어 :" + kor)
-        setUsername(username)
+        setname(username)
         setEng(eng)
         setKor(kor)
         setMath(math)
@@ -29,7 +29,7 @@ export default function Grade (){
                 <img src="" alt="" />
             </div>
             <div>
-            <label htmlFor="">Username</label><br/>
+            <label htmlFor="">name</label><br/>
             <input id = "username" type="text" /><br/>
                 <label htmlFor="">eng</label><br/>
                 <input id = "eng" type="text" /><br/>
@@ -38,7 +38,7 @@ export default function Grade (){
                 <label htmlFor="">kor</label><br/>
                 <input id = "kor" type="text" />
                 <br/><button onClick={()=>sum()}>입력</button><br/><br/>
-                <div>결과 : {username} {eng} {math} {kor}  </div>
+                <div>결과 : {name} {eng} {math} {kor}  </div>
                 <input type="text" /><br/> Remember me
                 <label><br/><br/>
                 
