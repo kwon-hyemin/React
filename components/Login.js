@@ -26,15 +26,10 @@ export default function Login (){
             <input id = "username" type = "text" />
             <label htmlFor=""><br/>Password</label><br/>
             <input id = "password" type="text" />
-                <br/><button>Login</button><br/><br/>
-                <input type="text" /><br/> Remember me
-                <label><br/><br/></label>
-            </div>
-            <div>
-                <button>Cancel</button>
-                <span>
-                <br/> Forgot<a>password</a>
-                </span>
+            <br/> Remember me<br/><input type="text" />
+            <label><br/><br/></label>
+            <br/><button onClick={()=>{sum()}}>Login</button><br/><br/>
+
                 <div>결과 : {username} {password} {result}</div>
             </div>
         </Layout>
