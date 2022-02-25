@@ -1,37 +1,43 @@
 import React, { useState } from "react";
 import Layout from "../containers/Layout";
+import { useLinkClickHandler } from "react-router-dom";
+import { memberLogin } from "../api";
 export default function Login (){
-    const [username, setUserName] = useState()
-    const [password,setPassword] = useState()
-    const [result, setResult] = useState()
-    const sum = ()=>{
-        let username = document.getElementById('username').value
-        console.log('이름 :' + username)
-        setUserName(username)
-        let password = document.getElementById('password').value
-        console.log('비밀번호 : ' + password)
-        setPassword(password)
-        return setResult()
-
+    const [inputs, setInputs] = useState({})
+    const [result, setResult ] = useState('')
+    const {name, id ,password} = inputs;
+    const handleChange = (e)=>{
+        e.preventDefault()
+        const {value, name} = e.target;
+        setInputs({
+            ...inputs, [name] : value
+        })
     }
-    
-
+    const handleClick = (e) => {
+        e.preventDefault()
+        const loginRequest = {name, id ,password}
+        memberLogin({name, id ,password}).then(res => setResult(res.data)).catch(err => console.log(`에러발생 : ${err}`))
+        alert(`사용자이름 : ${JSON.stringify(loginRequest)}`)
+    }
     return(<Layout>
+        <form>
         <h1>로그인폼 </h1>
-            <div>
-                <img src="" alt="" />
-            </div>
-            <div>
-            <label htmlFor="">Username</label><br/>
-            <input id = "username" type = "text" />
-            <label htmlFor=""><br/>Password</label><br/>
-            <input id = "password" type="text" />
-            <br/> Remember me<br/><input type="text" />
-            <label><br/><br/></label>
-            <br/><button onClick={()=>{sum()}}>Login</button><br/><br/>
+            
+    <div>
+    <label>Username</label><br/>
+    <input name="name" type = "text" onChange={handleChange} />
 
-                <div>결과 : {username} {password} {result}</div>
-            </div>
-        </Layout>
+    <label htmlFor=""><br/>id</label><br/>
+    <input name="id" type = "text" onChange={handleChange} />
+    
+    <label htmlFor=""><br/>Password</label><br/>
+    <input name="password" type = "text" onChange={handleChange} />
+    <br/><button onClick={handleClick}>Login</button><br/><br/>
+
+            
+    </div>
+    </form>
+    <div>결과 {result}</div>
+    </Layout>
     )
 }
